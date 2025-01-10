@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Panel\Http\Controllers\Auth\MemberController;
 use Modules\Panel\Http\Controllers\PanelController;
 
 /*
@@ -13,7 +14,19 @@ use Modules\Panel\Http\Controllers\PanelController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Rute untuk Login dan Autentikasi
 
-Route::group([], function () {
-    Route::resource('panel', PanelController::class)->names('panel');
+
+Route::group(['prefix' => 'panel', 'middleware' => 'guest'], function () {
+    Route::get('login', [PanelController::class, 'pageLogin'])->name('login');
+    // Route::post('login', [AuthController::class, 'login'])->name('login.post');
+});
+
+Route::group(['prefix' => 'panel', 'middleware' => ['auth']], function () {
+    Route::get('/', [PanelController::class, 'index'])->name('/');
+});
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('logout', [MemberController::class, 'logout'])->name('logout');
+    Route::post('do_login', [MemberController::class, 'do_login'])->name('auth.do_login');
 });
