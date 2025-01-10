@@ -14,6 +14,6 @@ use Modules\Panel\Http\Controllers\PanelController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('panel', PanelController::class)->names('panel');
-});
+// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+//     Route::apiResource('panel', PanelController::class)->names('panel');
+// });

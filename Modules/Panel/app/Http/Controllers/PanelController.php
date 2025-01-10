@@ -4,62 +4,39 @@ namespace Modules\Panel\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PanelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return view('panel::index');
+        // Cek apakah user sudah login
+        if (Auth::check()) {
+            // Jika sudah login, tampilkan halaman dashboard
+            $userId = Auth::user()->id;
+            $roleActive = session('akses_module');
+            // $shortcut = RoleUser::where('user_id', $userId)
+            //     ->whereNotIn('kode', [$roleActive])
+            //     ->join('roles', 'role_user.role_id', '=', 'roles.id') // Join ke tabel roles
+            //     ->get();
+            $shortcut = [];
+            return view('panel::index', compact('shortcut'));
+        } else {
+            // Jika belum login, tampilkan halaman login
+            $data = [];
+            return view('panel::Auth.index', compact('data'));
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('panel::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('panel::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('panel::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
+    public function pageLogin(){
+        $data = [];
+        if(Auth::check()){
+            $userId = Auth::user()->id;
+            echo $userId;
+            echo 'aaaaa';
+            // return redirect()->intended('/');
+        }else{
+            return view('panel::Auth.index', compact('data'));
+        }
     }
 }
