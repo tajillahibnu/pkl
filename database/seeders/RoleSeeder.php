@@ -13,9 +13,11 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::create(['kode' => 'admin','name' => 'Admin', 'description' => 'Administrator']);
-        Role::create(['kode' => 'guru','name' => 'Guru', 'description' => 'Regular User']);
-        Role::create(['kode' => 'karyawan','name' => 'Karyawan', 'description' => 'Content Editor']);
-        Role::create(['kode' => 'siswa','name' => 'Siswa', 'description' => 'Content Editor']);
+        Role::create(['name' => 'Super Admin', 'slug' => 'super_admin', 'description' => 'Full access to the system']);
+        Role::create(['name' => 'Admin Sekolah', 'slug' => 'admin_sekolah', 'description' => 'Manage school operations']);
+        Role::create(['name' => 'Guru', 'slug' => 'guru', 'description' => 'Manage student grades and attendance']);
+        Role::create(['name' => 'Siswa', 'slug' => 'siswa', 'description' => 'View academic information']);
+        Role::create(['name' => 'Orang Tua', 'slug' => 'orang_tua', 'description' => 'Monitor student progress']);
+        Role::create(['name' => 'Staff TU', 'slug' => 'staff_tu', 'description' => 'Manage administrative documents']);
     }
 }

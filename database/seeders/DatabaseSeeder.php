@@ -18,12 +18,6 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'admin@demo.com',
-            'username' => 'admin',
-        ]);
-
         $this->call([
             ConfigAppSeeder::class,
             RoleSeeder::class,
@@ -31,5 +25,20 @@ class DatabaseSeeder extends Seeder
             TahunAkademikSeeder::class,
             TingkatSeeder::class,
         ]);
+
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'admin@demo.com',
+            'username' => 'admin',
+            'primary_role_id' => 1
+        ]);
+
+        // $this->call([
+        //     ConfigAppSeeder::class,
+        //     RoleSeeder::class,
+        //     MenuSeeder::class,
+        //     TahunAkademikSeeder::class,
+        //     TingkatSeeder::class,
+        // ]);
     }
 }
