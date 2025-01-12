@@ -3,6 +3,7 @@
 namespace Modules\Panel\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Traits\ApiResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,12 +19,12 @@ class MemberController extends Controller
         $rememberMe = $request->has('remember_me'); // Cek apakah "Remember Me" dicentang
         if (Auth::attempt([$field => $request->input('email-username'), 'password' => $request->input('password')], $rememberMe)) {
             $user = Auth::user();
-
             // $getRole = Role::where('id', $user->primary_role_id)->get()->toArray();
-            // $getRole = Role::where('id', $user->primary_role_id)->first();
-
+            $getRole = Role::where('id', $user->primary_role_id)->first();
+            
+            session()->put('module_role_id', $getRole->id);
+            session()->put('akses_module', $getRole->slug);
             // session()->put('user_role', 'admin');
-            // session()->put('akses_module', $getRole->kode);
             // return $this->apiResponse(200, $user, 'Data berhasil diambil');
             return redirect()->intended('/');
         } else {
@@ -39,6 +40,6 @@ class MemberController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('desk/login');
+        return redirect('/');
     }
 }

@@ -1,11 +1,28 @@
 @extends('panel::layouts.master')
 
 @section('content')
+<div class="container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>School Management</h3>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">
+                            <svg class="stroke-icon">
+                                <use href="../assets/svg/icon-sprite.svg#stroke-home"></use>
+                            </svg></a></li>
+                    <li class="breadcrumb-item">Dashboard</li>
+                    <li class="breadcrumb-item active">School Manage</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Container-fluid starts-->
 <div class="container-fluid dashboard-7">
     <div class="row">
-        <div class="col-md-12">
-        </div>
         <div class="col-xxl-9 box-col-12">
             <div class="row">
                 <div class="col-xxl-4 col-md-5">
