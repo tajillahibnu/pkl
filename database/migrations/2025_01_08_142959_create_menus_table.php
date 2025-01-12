@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // Nama menu
+            $table->string('slug')->unique()->nullable(); // Lokasi halaman yang akan ditampilkan
             $table->string('url')->nullable(); // Lokasi halaman yang akan ditampilkan
             $table->foreignId('parent_id')->nullable()->constrained('menus')->onDelete('cascade'); // Relasi ke menu utama (jika sub-menu)
             $table->integer('level')->nullable(); // Menandakan apakah ini menu utama

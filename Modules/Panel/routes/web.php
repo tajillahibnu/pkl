@@ -22,11 +22,11 @@ Route::group(['prefix' => 'panel', 'middleware' => 'guest'], function () {
     // Route::post('login', [AuthController::class, 'login'])->name('login.post');
 });
 
-Route::group(['prefix' => 'panel', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'panel', 'middleware' => ['auth','MenuMiddleware']], function () {
     Route::get('/', [PanelController::class, 'index'])->name('/');
 });
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::get('logout', [MemberController::class, 'logout'])->name('logout');
+    Route::get('logout', [MemberController::class, 'logout'])->name('auth.logout');
     Route::post('do_login', [MemberController::class, 'do_login'])->name('auth.do_login');
 });
