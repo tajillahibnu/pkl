@@ -28,6 +28,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
         $this->app['router']->middlewareGroup('MenuMiddleware', [\Modules\Panel\Http\Middleware\MenuMiddleware::class]);
         $this->app['router']->middlewareGroup('PageContent', [\Modules\Panel\Http\Middleware\PageContentMiddleware::class]);
+        $this->app['router']->middlewareGroup('SiteMeta', [\Modules\Panel\Http\Middleware\SiteMetaMiddleware::class]);
     }
 
     /**

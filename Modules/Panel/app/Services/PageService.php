@@ -51,7 +51,6 @@ class PageService
         } catch (\Throwable $e) {
             throw new Exception('View not found or error in rendering view.');
         }
-
         return ['name' => $menu['name'],'html' => $html, 'plugins' => $plugins];
     }
 

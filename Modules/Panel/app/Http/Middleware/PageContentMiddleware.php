@@ -25,7 +25,9 @@ class PageContentMiddleware
             return $next($request);
         }
 
-        return $this->apiResponse(401, [], 'Menu not found');
+        return $this->apiResponse([])
+            ->statusCode(401)
+            ->send();
     }
 
     private function verificationMenu($request)

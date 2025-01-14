@@ -64,6 +64,9 @@
             </footer>
         </div>
     </div>
+    <div class="card-body common-flex common-toasts">
+        <div id="notif-app"></div>
+    </div>
     <script>
         var BASE_URL = `{{url('/')}}`;
     </script>
@@ -87,7 +90,6 @@
                     })
                     .then(function(response) {
                         var data = response.data['data'];
-                        console.log(data);
                         var nameMenu = data['name'];
                         $('#page-menu-name').html(nameMenu)
                         var html = atob(data.html);

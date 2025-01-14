@@ -17,7 +17,7 @@ use Modules\Panel\Http\Controllers\PanelController;
 // Rute untuk Login dan Autentikasi
 
 
-Route::group(['prefix' => 'panel', 'middleware' => 'guest'], function () {
+Route::group(['prefix' => 'panel', 'middleware' => ['guest','SiteMeta']], function () {
     Route::get('login', [PanelController::class, 'pageLogin'])->name('login');
     // Route::post('login', [AuthController::class, 'login'])->name('login.post');
 });

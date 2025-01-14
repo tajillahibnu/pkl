@@ -18,14 +18,34 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'sekolah',
                 'config_value'  => 'SMKN XX DODO',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
-                'config_kode'   => 'sekolah.alamat',
-                'config_name'   => 'sekolah_alamat',
-                'config_title'  => 'alamat sekolah',
+                'config_kode'   => 'sekolah.npsn',
+                'config_name'   => 'sekolah_npsn',
+                'config_title'  => 'NPSN (Nomor Pokok Sekolah Nasional)',
                 'config_tipe'   => 'sekolah',
-                'config_value'  => 'JL. Jalan Pemuda Kota Surabaya, Jawa Timur',
+                'config_value'  => '10933814',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.status',
+                'config_name'   => 'sekolah_status',
+                'config_title'  => 'Status Sekolah',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => 'negeri',
+                'config_input'  => 'radio',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.akreditasi',
+                'config_name'   => 'sekolah_akreditasi',
+                'config_title'  => 'Akreditasi Sekolah',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => 'A',
+                'config_input'  => 'radio',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'sekolah.tipe',
@@ -34,6 +54,52 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'sekolah',
                 'config_value'  => 'SMA',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.prov',
+                'config_name'   => 'sekolah_prov',
+                'config_title'  => 'Provinsi',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => 'Jawa Timur',
+                'config_input'  => 'input',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.kota',
+                'config_name'   => 'sekolah_kota',
+                'config_title'  => 'Kabupaten/Kota',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => 'Surabaya',
+                'config_input'  => 'input',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.Kec',
+                'config_name'   => 'sekolah_kec',
+                'config_title'  => 'Kecamatan',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => 'krajan',
+                'config_input'  => 'input',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.kodepos',
+                'config_name'   => 'sekolah_kodepos',
+                'config_title'  => 'Kode POS',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => '65617',
+                'config_input'  => 'input',
+                'is_sensitive'  => false,
+            ],
+            [
+                'config_kode'   => 'sekolah.alamat',
+                'config_name'   => 'sekolah_alamat',
+                'config_title'  => 'alamat sekolah',
+                'config_tipe'   => 'sekolah',
+                'config_value'  => 'JL. Jalan Pemuda Kota Surabaya, Jawa Timur',
+                'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'sekolah.is_smk',
@@ -42,6 +108,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'sekolah',
                 'config_value'  => true,
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'sekolah.email',
@@ -50,6 +117,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'sekolah',
                 'config_value'  => 'smk@demo.sch.id',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'sekolah.tlpn',
@@ -58,6 +126,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'sekolah',
                 'config_value'  => '0341 88899000',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'app.title',
@@ -66,6 +135,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'app',
                 'config_value'  => 'EDUCARE',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'app.name',
@@ -74,6 +144,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'app',
                 'config_input'  => 'input',
                 'config_value'  => 'Administrasi Kegiatan dan Data Edukasi',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'app.deskripsi',
@@ -82,6 +153,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'app',
                 'config_input'  => 'textarea',
                 'config_value'  => 'EDUCARE adalah platform yang mendukung pengelolaan administrasi dan kegiatan edukasi di sekolah untuk menciptakan lingkungan belajar yang lebih baik',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'app.favicon',
@@ -90,6 +162,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'app',
                 'config_input'  => 'file',
                 'config_value'  => 'Icon halaman',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'app.logo',
@@ -98,6 +171,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'app',
                 'config_input'  => 'file',
                 'config_value'  => 'logo admin',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'kbm.tahun',
@@ -106,6 +180,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'kbm',
                 'config_input'  => 'input',
                 'config_value'  => '2024/2025',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'kbm.semester',
@@ -114,6 +189,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'kbm',
                 'config_input'  => 'input',
                 'config_value'  => '1',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'kbm.semester_mulai',
@@ -122,6 +198,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'kbm',
                 'config_input'  => 'input',
                 'config_value'  => date('Y-m-d'),
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'kbm.semester_akhir',
@@ -130,6 +207,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'kbm',
                 'config_input'  => 'input',
                 'config_value'  => date('Y-m-d', strtotime('+6 month', strtotime(date('Y-m-d')))),
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'attendance_siswa.masuk',
@@ -138,6 +216,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'attendance',
                 'config_input'  => 'time',
                 'config_value'  => '07:00',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'attendance_siswa.keluar',
@@ -146,6 +225,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'attendance',
                 'config_input'  => 'time',
                 'config_value'  => '13:00',
+                'is_sensitive'  => false,
             ],
         ]);
         $this->saveSMTPEmail();
@@ -161,6 +241,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'smtp',
                 'config_value'  => 'demo@gmail.com',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'email.name',
@@ -169,6 +250,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'smtp',
                 'config_value'  => 'educare',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'email.port',
@@ -177,6 +259,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'smtp',
                 'config_value'  => '465',
                 'config_input'  => 'input',
+                'is_sensitive'  => true,
             ],
             [
                 'config_kode'   => 'email.username',
@@ -185,6 +268,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'smtp',
                 'config_value'  => 'demo@gmail.com',
                 'config_input'  => 'input',
+                'is_sensitive'  => false,
             ],
             [
                 'config_kode'   => 'email.password',
@@ -193,6 +277,7 @@ class ConfigAppSeeder extends Seeder
                 'config_tipe'   => 'smtp',
                 'config_value'  => 'jxhiwemcdrofecwg',
                 'config_input'  => 'input',
+                'is_sensitive'  => true,
             ],
         ]);
     }

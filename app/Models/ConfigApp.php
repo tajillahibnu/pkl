@@ -17,5 +17,6 @@ class ConfigApp extends Model
         'config_value',
         'config_input',
         'config_description',
+        'is_sensitive',
     ];
 }

@@ -4,13 +4,11 @@ namespace Modules\Panel\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
-use App\Traits\ApiResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
-    use ApiResponseTrait;
     public function do_login(Request $request)
     {
         $isEmail = filter_var($request->input('email-username'), FILTER_VALIDATE_EMAIL);
@@ -25,10 +23,8 @@ class MemberController extends Controller
             session()->put('module_role_id', $getRole->id);
             session()->put('akses_module', $getRole->slug);
             // session()->put('user_role', 'admin');
-            // return $this->apiResponse(200, $user, 'Data berhasil diambil');
             return redirect()->intended('/');
         } else {
-            // return $this->apiResponse(400, null, 'Terjadi kesalahan', ['field' => 'Nama harus diisi']);
         }
 
         return back()->withErrors([

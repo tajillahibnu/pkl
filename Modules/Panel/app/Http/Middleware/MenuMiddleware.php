@@ -20,21 +20,24 @@ class MenuMiddleware
             $roleActive = session('akses_module');
             $menus = $this->menuNav($roleActive);
             View::share('menus', $menus);
-            
+
             $userRoles = $this->shorcutRole();
             View::share('userRoles', $userRoles);
         }
         return $next($request);
     }
 
-    private function shorcutRole(){
+    private function shorcutRole()
+    {
         $aArrRoles = Role::all();
         return $aArrRoles;
     }
 
-    private function menuNav($roleActive)
+    private function menuNav($roleActive,$type = 'main')
     {
-        $menus = Menu::where('parent_id', null)->get();
+        $menus = Menu::where('parent_id', null)
+            ->where('type', $type)
+            ->get();
         foreach ($menus as $value) {
             $value->name = ucwords($value->name);
             $value->sub_menu = $this->subMenuNav($value->id, $roleActive);;

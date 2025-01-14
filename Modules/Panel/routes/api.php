@@ -21,5 +21,9 @@ use Modules\Panel\Http\Controllers\PanelController;
 Route::group(['prefix' => 'panel', 'middleware' => ['web', 'auth','PageContent']], function () {
     Route::post('load-page', [MenuController::class, 'getMenuPage'])->name('load-page');
 });
+
+Route::group(['prefix' => 'panel', 'middleware' => ['web', 'auth']], function () {
+    require_once(__DIR__ . '/api/setting/app.php');
+});
 // Route::post('switch-role', [PageController::class, 'switchModule'])->name('switch-role');
 // require_once(__DIR__ . '/api/management/user.php');

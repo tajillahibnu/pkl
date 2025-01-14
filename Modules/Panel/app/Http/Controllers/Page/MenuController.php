@@ -19,6 +19,7 @@ class MenuController extends Controller
     public function getMenuPage(Request $request)
     {
         $dataService = $this->mainService->show($request);
-        return $this->apiResponse(200,$dataService,'ok');
+        return $this->apiResponse($dataService)
+            ->send();
     }
 }

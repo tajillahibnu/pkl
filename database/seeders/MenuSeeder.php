@@ -57,7 +57,7 @@ class MenuSeeder extends Seeder
         $dd = $dd + 1;
         $save['id']         = $id.$dd;
         $save['parent_id']  = $id;
-        $save['name']       = 'App Settings';
+        $save['name']       = 'Aplikasi';
         $save['slug']        = 'config_app';
         $save['url']        = 'config_app';
         $save['level']      = '1';
@@ -70,7 +70,7 @@ class MenuSeeder extends Seeder
         $dd = $dd + 1;
         $save['id']         = $id.$dd;
         $save['parent_id']  = $id;
-        $save['name']       = 'Pengaturan Kurikulum';
+        $save['name']       = 'Sekolah';
         $save['slug']        = 'config_kurikulum';
         $save['url']        = 'config_kurikulum';
         $save['level']      = '1';

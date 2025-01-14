@@ -281,11 +281,12 @@ var APP = ((config) => {
                 placeholder: 'Select value',
                 custom: false,
                 autoselect: true,
-                callback: function (response) { }
+                select2: false,
+                callback: () => { }
             }, config);
 
             config.el.forEach(selector => {
-                $(selector).empty().append('<option></option>');
+                $(selector).empty().append('<option selected="" disabled="" value="">Choose...</option>');
             });
 
             APP.axiosRequest({
@@ -308,19 +309,34 @@ var APP = ((config) => {
                     }
 
                     // Jika custom select2 diaktifkan, lakukan inisialisasi select2
-                    $(selector).select2({
-                        placeholder: config.placeholder,
-                        dropdownParent: config.dropdownParent ? $(config.dropdownParent) : undefined
-                    });
+                    if (config.select2) {
+                        $(selector).select2({
+                            placeholder: config.placeholder,
+                            dropdownParent: config.dropdownParent ? $(config.dropdownParent) : undefined
+                        });
+                    }
                 });
                 if (typeof config.callback === "function") {
-                    config.callback(response);
+                    config.callback({ success: true, data }); // Callback untuk data yang diterima
                 }
 
             }).catch(error => {
-                // console.error("Fetch error:", error);
-            });
+                console.error("Fetch error:", error);
 
+                // Tambahkan opsi error jika gagal
+                config.el.forEach(selector => {
+                    const $select = $(selector);
+                    if ($select.length > 0) {
+                        $select.append('<option disabled value="">Error fetching data</option>');
+                    }
+                });
+
+                // Panggil callback dengan error jika ada
+                if (typeof config.callback === "function") {
+                    config.callback({ success: false, error }); // Callback untuk error
+                }
+
+            });
         },
         notif: (config) => {
             config = $.extend(true, {
@@ -329,13 +345,17 @@ var APP = ((config) => {
                 message: 'N/A'
             }, config);
 
+            if (config.type == 'error') {
+                config.type = 'dangger';
+            }
+
             var html = `
             <div class="card-body common-flex common-toasts">
                 <div class="toast-container position-fixed top-0 end-0 p-3 toast-index toast-rtl">
                     <div class="toast" id="liveToast6" role="alert" aria-live="polite" aria-atomic="true">
                         <div class="common-space alert-light-${config.type}">
                             <div class="toast-body">
-                                <i class="close-search stroke-success" data-feather="check-square"></i>${config.message}
+                                <i class="fa-regular fa-bell stroke-success" data-feather="check-square"></i>${config.message}
                             </div>
                             <button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
                         </div>
@@ -349,6 +369,33 @@ var APP = ((config) => {
             toastBootstrap.show()
             // setTimeout(() => {
             // }, 400);
+        },
+        notify: (config) => {
+            // Opsi default
+            var defaults = {
+                type: 'theme', // success, danger, warning, info
+                message: '<i class="fa-regular fa-bell"></i><strong>Notification</strong> Default message.',
+                delay: 2000,
+                allow_dismiss: true,
+                timer: 300,
+                animate: {
+                    enter: "animated fadeInDown",
+                    exit: "animated fadeOutUp",
+                },
+                showProgressbar: true,
+            };
+
+            // Menggabungkan konfigurasi dengan default
+            config = $.extend(true, defaults, config);
+
+            // Menampilkan notifikasi
+            $.notify(config.message, {
+                type: config.type,
+                allow_dismiss: config.allow_dismiss,
+                delay: config.delay,
+                animate: config.animate,
+                showProgressbar: config.showProgressbar,
+            });
         }
     };
 })({ defaultOption: true }); // Mengirimkan objek config saat IIFE dipanggil

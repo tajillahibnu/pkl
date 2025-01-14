@@ -22,5 +22,13 @@ class TahunAkademikSeeder extends Seeder
             'year' => '2023/2024',
             'is_active' => true
         ]);
+        $academicYear = TahunAkademik::create([
+            'year' => '2024/2025',
+            'is_active' => true
+        ]);
+        $academicYear = TahunAkademik::create([
+            'year' => '2025/2026',
+            'is_active' => true
+        ]);
     }
 }

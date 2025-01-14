@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('config_value')->nullable();
             $table->string('config_input',20)->nullable();
             $table->string('config_description',200)->nullable();
+            $table->boolean('is_sensitive')->default(false);
             $table->timestamps();
         });
     }
